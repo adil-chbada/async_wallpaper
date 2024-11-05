@@ -311,7 +311,6 @@ public class AsyncWallpaperPlugin extends Application implements FlutterPlugin, 
 class SetWallPaperTask extends AsyncTask<Pair<Bitmap, String>, Boolean, Boolean> {
 
     private final Context mContext;
-    private boolean isReplySent = false;
 
     public SetWallPaperTask(final Context context) {
         mContext = context;
@@ -396,10 +395,7 @@ class SetWallPaperTask extends AsyncTask<Pair<Bitmap, String>, Boolean, Boolean>
     }
 
     private void myMethod(Boolean result) {
-        if (!isReplySent) {
-            AsyncWallpaperPlugin.res.success(result);
-            isReplySent = true;
-        }
+        AsyncWallpaperPlugin.res.success(result);
     }
 
     public static Uri getImageContentUri(Context context, String absPath) {
